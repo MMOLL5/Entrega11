@@ -136,7 +136,7 @@ router.get('/vista', (req, res) => {
     hayProductos: existe,
     listaProductos: productos};
 
-    res.render('main.handlebars', datosProductos);
+    res.render('vistaEjs', datosProductos);
 });
 
 
