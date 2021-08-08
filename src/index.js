@@ -2,7 +2,6 @@
 import express, { request, response } from 'express';
 import path from 'path';
 import apiRouter from './routes/apiRouter.js';
-import handlebars from 'express-handlebars';
 
 /*Declaración puerto y app*/
 const puerto = 8080;
@@ -21,17 +20,8 @@ server.on('error', (err) => {
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
 
-const layoutFolderPath = path.resolve(__dirname, '../views/layouts'); 
-const defaultLayerPath = path.resolve(__dirname, '../views/layouts/index.handlebars');
-
-
-app.set('view engine', 'handlebars');
+app.set('view engine', 'pug');
 app.set('views', './views');
-
-app.engine('handlebars', handlebars({
-    layoutsDir: layoutFolderPath,
-    defaultLayout: defaultLayerPath,
-}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
