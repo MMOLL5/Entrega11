@@ -1,0 +1,21 @@
+<div class="m-3 pb-5 bg-light">
+    <h2 class="text-primary">Vista de Productos</h2>
+    <br>
+    {{#if hayProductos}}
+        <table class="table table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Foto</th></tr>
+            {{#each listaProductos }}
+            <tr><td>{{title}}</td>
+            <td>{{price}}</td>
+            <td><img src="{{thumbnail}}" width="32" height="32"></td>
+            {{/each}}
+        </table>
+    {{else}}
+        <div class="alert alert-warning">
+        <strong>No se encontraron productos!</strong>
+        </div>
+    {{/if}}
+</div>
